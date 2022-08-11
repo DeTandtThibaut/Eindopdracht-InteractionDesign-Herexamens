@@ -391,7 +391,7 @@ function showSuggestions(list){
 }
 
 let getgeocode = async (stad) => {
-	const request = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${stad}&limit=1&appid=5ba393a21a0b49cf23ce537787c84a3d`) 
+	const request = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${stad}&limit=1&appid=5ba393a21a0b49cf23ce537787c84a3d`) 
     console.log(request);
 	const data = await request.json();
 	console.log(data);
