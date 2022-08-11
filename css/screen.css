@@ -566,6 +566,14 @@ input::placeholder {
 /*------------------------------------*\
 #MEDIA
 \*------------------------------------*/
+
+@media screen and (max-width: 900px){
+  .wrapper{
+    left: 25%;
+    right: 25%;
+  }
+  
+}
 @media screen and (max-width: 750px) {
   /* STYLES HERE */
   .wrapper{
