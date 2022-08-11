@@ -592,7 +592,7 @@ input::placeholder {
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 520px) {
 
   .wrapper{
     left: 20%;
@@ -613,7 +613,7 @@ input::placeholder {
   
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 420px) {
 
   .wrapper{
     left: 10%;

@@ -415,11 +415,7 @@ let getPollenData = async (latitude, longitude) => {
     console.log(request);
 	const data = await request.json();
 	console.log(data);
-
-    
-
     showPollenData(data);
-    
 }
 
 let showPollenData = (data) =>{
@@ -427,8 +423,6 @@ let showPollenData = (data) =>{
     console.log(data.data[0].types.grass.index.value);
     console.log(data.data[0].types.tree.index.value);
     console.log(data.data[0].types.weed.index.value);
-
-
 
     //loop over all elements in grassmeter and delete previous border(s)
     for (let i = 0; i < grassmeter.length; i++) {
@@ -452,7 +446,7 @@ let showPollenData = (data) =>{
        
     }
 
-    //add class to element in grassmeter & treemeter & weedmeter 
+    //add class to element in grassmeter ,treemeter & weedmeter 
     if(data.data[0].types.grass.index.value != null){grassmeter[data.data[0].types.grass.index.value -1].classList.add('pollen--border');}
     else{grasscontainer.innerHTML = `<p class="error_message">No pollen data</p>`;}
     if(data.data[0].types.tree.index.value != null){treemeter[data.data[0].types.tree.index.value -1].classList.add('pollen--border');}
@@ -462,12 +456,6 @@ let showPollenData = (data) =>{
 
     container.classList.remove('hide_container');
     mainPage.classList.remove('center_container');
-    
-    
-    
-
-
-
 }
 
 
