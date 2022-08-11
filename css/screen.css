@@ -569,8 +569,8 @@ input::placeholder {
 @media screen and (max-width: 750px) {
   /* STYLES HERE */
   .wrapper{
-    left: 25%;
-    right: 25%;
+    left: 20%;
+    right: 20%;
   }
   .content_container{
     grid-auto-flow: column;
@@ -595,8 +595,8 @@ input::placeholder {
 @media screen and (max-width: 520px) {
 
   .wrapper{
-    left: 20%;
-    right: 20%;
+    left: 15%;
+    right: 15%;
   }
   h2{
     font-size: 20px;
@@ -613,7 +613,7 @@ input::placeholder {
   
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
 
   .wrapper{
     left: 10%;
