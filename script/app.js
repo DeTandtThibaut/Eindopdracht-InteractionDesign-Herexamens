@@ -324,19 +324,19 @@ let linkTag = searchWrapper.querySelector("a");
 let webLink;
 // if user press any key and release
 inputBox.onkeyup = (e)=>{
+    map.removeLayer(marker);
     if(!container.classList.contains('o-hide-accessible')){container.classList.add('o-hide-accessible');}
     if(!mainPage.classList.contains('center_container')){mainPage.classList.add('center_container');}
     let error = document.querySelector(".error_message");
     error.textContent = "";
-    map.removeLayer(marker);
     
     
     let userData = e.target.value; //user enetered data
+    //converting to lowercase
     let emptyArray = [];
     if(userData){
         if(e.key == "Enter"){icon.click();}
         icon.onclick = ()=>{
-
             if(suggestions.includes(userData)){getgeocode(userData);
             }else{
                 let error = document.querySelector(".error_message");
@@ -374,8 +374,6 @@ function select(element){
             let error = document.querySelector(".error_message");
             error.textContent = "This city doesn't exist or is not a belgian city"
         }
-        
-        
     }
     searchWrapper.classList.remove("active");
 }
@@ -461,12 +459,7 @@ let showPollenData = (data) =>{
     map.invalidateSize()
 }
 
-
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
-    
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -475,8 +468,3 @@ document.addEventListener('DOMContentLoaded', function() {
     
    
 });
-
-/*
-    Geolocation http://api.openweathermap.org/geo/1.0/direct?q=zottegem&limit=1&appid=5ba393a21a0b49cf23ce537787c84a3d
-    Pollen op lat & long https://api.breezometer.com/pollen/v2/forecast/daily?lat=50.86955&lon=3.81052&key=4493bf2fffe4491984a15710d4b5e660&features=types_information&days=1
-*/ 
