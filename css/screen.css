@@ -552,6 +552,12 @@ input::placeholder {
   display: none;
 }
 
+.leaflet-pane img{
+  
+  position: absolute;
+  
+}
+
 
 /*------------------------------------*\
 #UTILITIES
