@@ -4,17 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/screen.css" id="light-styles">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
+
     <title>Document</title>
 </head>
 <body>
-    <header class="header">
-        <h1 class="page_title">Top rated movies</h1>
-        <div class="header_graph">
 
+    <section class="page_main center_container">
+      <h1 class="page_title">Pollen status</h1>
+      <p class="page_subtitle">Check pollen risk for your city</p>
+      <p class="error_message center_text"></p>
+
+      <div class="wrapper">
+        <div class="search-input">
+          <a href="" target="_blank" hidden></a>
+          <input type="text" placeholder="Type to search..">
+          <div class="autocom-box">
+            <!-- here list are inserted from javascript -->
+          </div>
+          <div class="icon"><img src="assets/img/search_500px.png" alt="" height="35px" width="35px"></div>
         </div>
-    </header>
-    <section>
+      </div>
+<p>
+  <!--  https://api.breezometer.com/pollen/v2/forecast/daily?lat=50.86955&lon=3.81052&key=4493bf2fffe4491984a15710d4b5e660&features=types_information&days=1  
+        http://api.openweathermap.org/geo/1.0/direct?q=zottegem&limit=1&appid=5ba393a21a0b49cf23ce537787c84a3d
+  -->
+</p>
+    </section>
+    <section class="content_container hide_container ">
+      <div id="map">
 
+        
+      </div>
+      <div class="container">
+        <div>
+          <h2>Grass</h2>
+          <p>Pollen risk:</p>
+          <div class="pollenmeter pollenmeter_container--grass">
+            <div class="pollen--box pollenmeter--grass pollen--very_low"></div>
+            <div class="pollen--box pollenmeter--grass pollen--low"></div>
+            <div class="pollen--box pollenmeter--grass pollen--moderate"></div>  
+            <div class="pollen--box pollenmeter--grass pollen--high"></div>
+            <div class="pollen--box pollenmeter--grass pollen--very_high"></div>
+          </div></div>
+        <div>
+          <h2>Tree</h2>
+          <p>Pollen risk:</p>
+          <div class="pollenmeter pollenmeter_container--tree">
+            <div class="pollen--box pollenmeter--tree pollen--very_low"></div>
+            <div class="pollen--box pollenmeter--tree pollen--low"></div>
+            <div class="pollen--box pollenmeter--tree pollen--moderate"></div>  
+            <div class="pollen--box pollenmeter--tree pollen--high"></div>
+            <div class="pollen--box pollenmeter--tree pollen--very_high"></div>
+          </div></div>
+        <div>
+          <h2>Weed</h2>
+          <p>Pollen risk:</p>
+          <div class="pollenmeter pollenmeter_container--weed">
+            <div class="pollen--box pollenmeter--weed pollen--very_low"></div>
+            <div class="pollen--box pollenmeter--weed pollen--low"></div>
+            <div class="pollen--box pollenmeter--weed pollen--moderate"></div>  
+            <div class="pollen--box pollenmeter--weed pollen--high"></div>
+            <div class="pollen--box pollenmeter--weed pollen--very_high"></div>
+          </div></div>
+      </div>
     </section>
 </body>
 </html>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+crossorigin=""></script>
+<script src="script/app.js"></script>

@@ -1,0 +1,698 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Fonts are loaded via Google fonts */
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+
+:root {
+
+  
+  /* colors */
+  --container-background:white;
+
+  --test:rgb(201, 228, 252);
+  --color-light: white;
+  --color-dark: hsla(208,70%,20%,1);
+
+  --color-front: var(--color-dark);
+  --color-back: var(--color-light);
+  --global-background-color:#F5F6FB;
+
+  /* Global colors */
+  --global-color-alpha-light: #4F95FF;
+  --global-color-alpha: #3385FF;
+  --global-color-alpha-dark: #2E77E6;
+  --global-color-alpha-x-dark: #1B4186;
+  --global-color-alpha-transparent: #3385ffbf;
+  --global-color-alpha-x-transparent: #3385ff4d;
+  --global-color-alpha-x-base: #644bff;
+  --global-color-alpha-x-accent: #664AFF;
+
+  --global-color-neutral-xxxx-light: #F5F6FA;
+  --global-color-neutral-xxx-light: #E2E3E7;
+  --global-color-neutral-xx-light: #caccd4;
+  --global-color-neutral-x-light: #b5b6c0;
+  --global-color-neutral-light: #a0a1ad;
+  --global-color-neutral: #8b8c9a;
+  --global-color-neutral-dark: #757787;
+  --global-color-neutral-x-dark: #606274;
+  --global-color-neutral-xx-dark: #4b4c60;
+  --global-color-neutral-xxx-dark: #35374d;
+  --global-color-neutral-xxxx-dark: #20223a;
+
+  /* Pollen colors */
+  --pollen-color-very-low: #009E3A;
+  --pollen-color-low: #84CF33;
+  --pollen-color-moderate: #FFFF00;
+  --pollen-color-high: #ff7700;
+  --pollen-color-very-high: #ff2600;
+  
+  --global-color-error: #FF3333;
+  --global-color-error-transparent: #FF3333bf;
+  --global-color-error-x-transparent: #FF33334d;
+
+  /* global page settings */
+  --global-page-color: var(--global-color-neutral-xxxx-dark);
+  --global-page-backgroundColor: var(--global-color-neutral-xxxx-light);
+  --global-selection-backgroundColor: var(--global-color-alpha);
+
+  /* border radius */
+  --global-borderRadius: 3px;
+  --global-borderWidth: 1px;
+
+  /* transitions */
+  --global-transitionEasing-out: ease-out;
+  --global-transitionEasing-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --global-transitionDuration-alpha: .1s;
+  --global-transitionDuration-beta: .2s;
+  --global-transitionDuration-gamma: .3s;
+
+  /* Baseline settings */
+  --global-baseline: 8px;         
+  --global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
+
+  --global-whitespace-xs: calc(var(--global-baseline) * .5); /* = 4px */
+  --global-whitespace-sm: calc(var(--global-baseline) * 1); /*  = 8px */
+  --global-whitespace-md: calc(var(--global-baseline) * 2); /*  = 16px */
+  --global-whitespace-lg: calc(var(--global-baseline) * 4); /*  = 32px */
+  --global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
+  --global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*  = 72px */
+  --global-whitespace-x-xs: 0.8rem;
+  --global-whitespace-x-sm:1.8rem; 
+  --global-whitespace-x-md:2.8rem;
+  --global-whitespace-x-lg:3.8rem;
+
+  /* forms */
+  --global-label-color: var(--global-color-neutral-xx-dark);
+  --global-placeholder-color: var(--global-color-neutral-x-light);
+  --global-input-backgroundColor: White;
+  --global-input-color: var(--global-color-neutral-xxxx-dark);
+  --global-input-borderColor: var(--global-color-neutral-xxx-light);
+  --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+  --global-input-focus-borderColor: var(--global-color-alpha);    
+  --global-input-focus-boxShadowSpread: 0 0 0 3px;
+  --global-input-focus-boxShadowColor: var(--global-color-alpha-x-transparent);
+  --global-input-error-borderColor: var(--global-color-error);
+  --global-input-error-boxShadowColor: var(--global-color-error-x-transparent);
+
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+  Generic: Page
+  ---
+  Global page styles + universal box-sizing:
+*/
+
+html {
+  height:100%;
+  font-size: 16px;
+  line-height: 0.8;
+  font-family: "Poppins", Helvetica, arial, sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--global-background-color);
+
+}
+body{
+  height:100%;
+  
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
+
+::-moz-selection {
+  background: var(--color-front);
+  color: var(--color-light);
+  text-shadow: none;
+}
+
+::selection {
+  background: var(--color-front);
+  color: var(--color-light);
+  text-shadow: none;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/*
+  Elements: typography
+  ---
+  Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 48px;
+  margin: 0 0 24px;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 40px;
+  margin: 0 0 24px;
+}
+
+h3 {
+  font-size: 26px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  margin: 0 0 24px;
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin: 0 0 24px;
+}
+
+ul,
+ol {
+  padding-left: 24px;
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 23px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+blockquote * {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figcaption {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 8px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--color-light);
+  margin: 0 0 24px;
+}
+
+a {
+  transition: all var(--transition-alpha);
+  color: var(--color-front);
+  outline-color: var(--color-front);
+  outline-width: medium;
+  outline-offset: 2px;
+}
+
+a:visited,
+a:active {
+  color: var(--color-front);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-front);
+}
+
+label,
+input {
+  display: block;
+}
+
+select {
+  width: 100%;
+}
+
+input::placeholder {
+  color: var(--global-color-neutral);
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/* --------------------------------
+  Object: box
+
+*/
+
+.container{
+  background-color: var(--container-background);      
+  box-shadow:
+  12.5px 12.5px 10px rgba(0, 0, 0, 0.042),
+  100px 100px 80px rgba(0, 0, 0, 0.08);
+
+  border-radius: 0 10px 10px 0;
+  padding: 15px;
+
+}
+
+#map{
+  border-radius: 10px 0 0 10px;
+  box-shadow:
+  12.5px 12.5px 10px rgba(0, 0, 0, 0.042);
+}
+
+.content_container{
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-gap: 0;
+  margin: 10rem 5rem 0 5rem;
+  
+  height: 60vh; 
+
+
+}
+
+/*
+  Object: Button reset
+  ---
+  Small button reset object
+*/
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+/*
+  Object: Hide accessible
+  ---
+  Accessibly hide any element
+*/
+
+.o-hide-accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+.header{
+
+  width: 96rem;
+  margin: auto;
+  padding: 0.1rem;
+  margin-bottom: 1rem;
+  
+}
+.center_container{
+  position: absolute;
+  top: 35%;
+  left: 5%;
+  right: 5%;
+}
+
+.center_text{
+  text-align: center;
+}
+
+.page_title{
+  font-size: 2.8rem;
+  color: var(--global-color-alpha-x-base);
+  margin-top: 25px;
+  text-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.042),
+  100px 100px 80px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  
+
+
+}
+.page_subtitle{
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--global-color-alpha-x-accent);
+  margin: 0 0 25px 0px;
+}
+
+
+::selection{
+  color: #fff;
+  background: var(--global-color-alpha-x-accent);
+}
+
+.wrapper{
+  position: absolute;
+  z-index: 1000;
+  left: 35%;
+  right: 35%;
+}
+
+.wrapper .search-input{
+  background: #fff;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+}
+
+.search-input input{
+  height: 55px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0 60px 0 20px;
+  font-size: 18px;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+}
+
+.search-input.active input{
+  border-radius: 5px 5px 0 0;
+}
+
+.search-input .autocom-box{
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.search-input.active .autocom-box{
+  padding: 10px 8px;
+  opacity: 1;
+  pointer-events: auto;
+
+}
+
+.autocom-box li{
+  list-style: none;
+  padding: 8px 12px;
+  display: none;
+  width: 100%;
+  cursor: default;
+  border-radius: 3px;
+
+}
+
+
+
+.search-input.active .autocom-box li{
+  display: block;
+}
+.autocom-box li:hover{
+  background: #efefef;
+}
+
+.search-input .icon{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 55px;
+  width: 55px;
+  text-align: center;
+  line-height: 55px;
+  font-size: 20px;
+  color: var(--global-color-alpha-x-base);
+  cursor: pointer;
+
+}
+
+.search-input .icon > img{
+
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.pollenmeter{
+  display:flex;
+}
+.pollenmeter > div{
+  margin: 3px;
+}
+
+.pollen--border{
+
+  outline: var( --color-light) solid 2px;
+  box-shadow: 0 0 0 3px var(--global-color-alpha-x-accent);
+  border-radius: 2px;
+}
+.pollen--very_low{
+  
+  
+  background-color: var(--pollen-color-very-low) ;
+
+
+  
+}
+
+.pollen--low{
+  background-color: var(--pollen-color-low);
+}
+
+.pollen--moderate{
+  background-color: var(--pollen-color-moderate);
+}
+
+.pollen--high{
+  background-color: var(--pollen-color-high);
+}
+
+.pollen--very_high{
+  background-color: var(--pollen-color-very-high);
+}
+.pollen--box{
+  height: 20px;
+  width: 20px;
+}
+
+
+.hide_container{
+  display: none;
+}
+
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+.error_message{
+  color: var(--global-color-error);
+  
+}
+
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+@media screen and (max-width: 750px) {
+  /* STYLES HERE */
+  .wrapper{
+    left: 25%;
+    right: 25%;
+  }
+  .content_container{
+    grid-auto-flow: column;
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 0.8fr;
+    margin: 100px 25px 10px 25px;
+  }
+  .container{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 0 0 10px 10px;
+  }
+  h2{
+    margin: 0 0 10px;
+  }
+  
+  #map{
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .wrapper{
+    left: 20%;
+    right: 20%;
+  }
+  h2{
+    font-size: 20px;
+    margin: 0 0 5px;
+  }
+  p{
+    font-size: 14px;
+    margin: 0 0 5px;
+  }
+  .pollen--box{
+    height: 15px;
+    width: 15px;
+  }
+  
+}
+
+@media screen and (max-width: 380px) {
+
+  .wrapper{
+    left: 10%;
+    right: 10%;
+  }
+  .container{
+    display: block;
+  }
+
+}
+
+
+@media print {
+  *,
+  *:before,
+  *:after {
+      background: transparent !important;
+      color: #000 !important;
+      /* Black prints faster:
+      http://www.sanbeiji.com/archives/953 */
+      box-shadow: none !important;
+      text-shadow: none !important;
+  }
+  a,
+  a:visited {
+      text-decoration: underline;
+  }
+  a[href]:after {
+      content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+      content: " (" attr(title) ")";
+  }
+  /*
+  * Don't show links that are fragment identifiers,
+  * or use the `javascript:` pseudo protocol
+  */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+      content: "";
+  }
+  pre {
+      white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+      border: 1px solid #999;
+      page-break-inside: avoid;
+  }
+  /*
+  * Printing Tables:
+  * http://css-discuss.incutio.com/wiki/Printing_Tables
+  */
+  thead {
+      display: table-header-group;
+  }
+  tr,
+  img {
+      page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+      orphans: 3;
+      widows: 3;
+  }
+  h2,
+  h3 {
+      page-break-after: avoid;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
