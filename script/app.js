@@ -454,8 +454,11 @@ let showPollenData = (data) =>{
     if(data.data[0].types.weed.index.value != null){weedmeter[data.data[0].types.weed.index.value -1].classList.add('pollen--border');}
     else{weedcontainer.innerHTML = `<p class="error_message">No pollen data </p>`;}
 
+    
+
     container.classList.remove('hide_container');
     mainPage.classList.remove('center_container');
+    map.invalidateSize()
 }
 
 
