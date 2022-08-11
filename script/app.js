@@ -324,7 +324,7 @@ let linkTag = searchWrapper.querySelector("a");
 let webLink;
 // if user press any key and release
 inputBox.onkeyup = (e)=>{
-    if(!container.classList.contains('hide_container')){container.classList.add('hide_container');}
+    if(!container.classList.contains('o-hide-accessible')){container.classList.add('o-hide-accessible');}
     if(!mainPage.classList.contains('center_container')){mainPage.classList.add('center_container');}
     let error = document.querySelector(".error_message");
     error.textContent = "";
@@ -456,7 +456,7 @@ let showPollenData = (data) =>{
 
     
 
-    container.classList.remove('hide_container');
+    container.classList.remove('o-hide-accessible');
     mainPage.classList.remove('center_container');
     map.invalidateSize()
 }
