@@ -400,6 +400,7 @@ input::placeholder {
 .page_subtitle{
   text-align: center;
   font-size: 1.4rem;
+  line-height: 2rem;
   color: var(--global-color-alpha-x-accent);
   margin: 0 0 1.563rem 0;
 }
