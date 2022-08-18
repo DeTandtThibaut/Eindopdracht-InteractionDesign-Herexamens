@@ -16,7 +16,7 @@ var map = L.map('map').setView([50.8695469, 3.8107086], 13);
 var marker = L.marker([50.8695469, 3.8107086]).addTo(map);
 
 // getting all required elements
-const searchWrapper = document.querySelector(".search-input");
+const searchWrapper = document.querySelector(".c-search-input");
 const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 const icon = searchWrapper.querySelector(".icon");
@@ -25,21 +25,24 @@ let webLink;
 // if user press any key and release
 inputBox.onkeyup = (e)=>{
     map.removeLayer(marker);
-    if(!container.classList.contains('o-hide-accessible')){container.classList.add('o-hide-accessible');}
-    if(!mainPage.classList.contains('center_container')){mainPage.classList.add('center_container');}
+    //if(!container.classList.contains('o-hide-accessible')){container.classList.add('o-hide-accessible');}
+    //if(!mainPage.classList.contains('center_container')){mainPage.classList.add('center_container');}
     let error = document.querySelector(".error_message");
     error.textContent = "";
     
     let userData = e.target.value; //user enetered data
+    userData = userData.charAt(0).toUpperCase() + userData.slice(1).toLowerCase().replace(/\s+/g, '')
+    console.log("submited data" + userData);
     //converting to lowercase
     let emptyArray = [];
     if(userData){
         if(e.key == "Enter"){icon.click();}
+        
         icon.onclick = ()=>{
             if(suggestions.includes(userData)){getgeocode(userData);
             }else{
                 let error = document.querySelector(".error_message");
-                error.textContent = "This city doesn't exist or is not a belgian city"
+                error.textContent = "Deze stad bestaat niet of is geen vlaamse stad"
             }
         }
         emptyArray = suggestions.filter((data)=>{
@@ -62,16 +65,23 @@ inputBox.onkeyup = (e)=>{
     }
 }
 function select(element){
-    let selectData = element.textContent;
+    let selectData = element.textContent 
+    selectData.replace(/\s+/g, '')
+    selectData.toLowerCase();
+    selectData.charAt(0).toUpperCase();
+   
+    console.log("data:"+selectData);
+    //remove space in selectData and convert to lowercase with first letter capital;
     inputBox.value = selectData;
-    icon.onclick = ()=>{
+   
+    
         //check if selectData is in suggestions array
         if(suggestions.includes(selectData)){getgeocode(selectData);
         }else{
             let error = document.querySelector(".error_message");
-            error.textContent = "This city doesn't exist or is not a belgian city"
+            error.textContent = "Deze stad bestaat niet of is geen vlaamse stad"
         }
-    }
+    
     searchWrapper.classList.remove("active");
 }
 function showSuggestions(list){
@@ -83,6 +93,26 @@ function showSuggestions(list){
       listData = list.join('');
     }
     suggBox.innerHTML = listData;
+}
+
+function ClickDarkToggleEvent(){
+    var container = document.querySelector('.js-checkbox--dark');
+    container.addEventListener('click',  function( event ) {
+        setTimeout(function(){
+            if(container.checked){
+                document.getElementById('dark-styles').disabled  = false;
+                document.getElementById('light-styles').disabled  = true;
+            }else{
+                document.getElementById('dark-styles').disabled  = true;
+                document.getElementById('light-styles').disabled  = false;
+            }
+
+        }, 600);
+        
+       
+       
+        
+    });
 }
 
 let getgeocode = async (stad) => {
@@ -111,6 +141,9 @@ let getPollenData = async (latitude, longitude) => {
     showPollenData(data);
 }
 
+
+
+
 let showPollenData = (data) =>{
 
     console.log(data.data[0].types.grass.index.value);
@@ -122,14 +155,12 @@ let showPollenData = (data) =>{
         if(grassmeter[i].classList.contains("pollen--border")){
             grassmeter[i].classList.remove("pollen--border");
         }
-       
     }
 
     for (let i = 0; i < treemeter.length; i++) {
         if(treemeter[i].classList.contains("pollen--border")){
             treemeter[i].classList.remove("pollen--border");
         }
-       
     }
 
     for (let i = 0; i < weedmeter.length; i++) {
@@ -141,14 +172,14 @@ let showPollenData = (data) =>{
 
     //add class to element in grassmeter ,treemeter & weedmeter 
     if(data.data[0].types.grass.index.value != null){grassmeter[data.data[0].types.grass.index.value -1].classList.add('pollen--border');}
-    else{grasscontainer.innerHTML = `<p class="error_message">No pollen data</p>`;}
+    else{grasscontainer.innerHTML = `<p class="error_message">Geen pollen data</p>`;}
     if(data.data[0].types.tree.index.value != null){treemeter[data.data[0].types.tree.index.value -1].classList.add('pollen--border');}
-    else{treecontainer.innerHTML = `<p class="error_message">No pollen data </p>`;}
+    else{treecontainer.innerHTML = `<p class="error_message">Geen pollen data</p>`;}
     if(data.data[0].types.weed.index.value != null){weedmeter[data.data[0].types.weed.index.value -1].classList.add('pollen--border');}
-    else{weedcontainer.innerHTML = `<p class="error_message">No pollen data </p>`;}
+    else{weedcontainer.innerHTML = `<p class="error_message">Geen pollen data</p>`;}
 
-    container.classList.remove('o-hide-accessible');
-    mainPage.classList.remove('center_container');
+    //container.classList.remove('o-hide-accessible');
+    //mainPage.classList.remove('center_container');
     map.invalidateSize()
 }
 
@@ -158,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
         maxZoom: 19,
         attribution: '© OpenStreetMap'
     }).addTo(map);
-    
+    getgeocode("Kortrijk");
+    ClickDarkToggleEvent();
    
 });

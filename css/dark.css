@@ -20,10 +20,10 @@
 
   
   /* colors */
-  --global-color-light: white;
+  --global-color-light: #2e2e2e;
   --color-front: var(--global-color-alpha-x-dark);
   --color-back: var(--global-color-light);
-  --global-background-color:#F5F6FB;
+  --global-background-color:#222222;
 
   /* Global colors */
   
@@ -31,10 +31,10 @@
   --global-color-alpha-dark: #2E77E6;
   --global-color-alpha-x-dark: #0F3557;
   --global-color-alpha-x-transparent: #3385ff4d;
-  --global-color-alpha-x-base: #644bff;
-  --global-color-alpha-x-accent: #664AFF;
+  --global-color-alpha-x-base: #BB86FC;
+  --global-color-alpha-x-accent: #BB86FC;
 
-  --global-color-neutral-xxxx-light: #F5F6FA;
+  --global-color-neutral-xxxx-light: #575757;
   --global-color-neutral-xxx-light: #E2E3E7;
   --global-color-neutral-xx-light: #caccd4;
   --global-color-neutral-x-light: #b5b6c0;
@@ -60,7 +60,7 @@
 
   /* global page settings */
   --global-page-color: var(--global-color-neutral-xxxx-dark);
-  --global-page-backgroundColor: var(--global-color-neutral-xxxx-light);
+  --global-page-backgroundColor: var(--global-color-light);
   --global-selection-backgroundColor: var(--global-color-alpha);
 
   /* border radius */
@@ -92,7 +92,7 @@
   /* forms */
   --global-label-color: var(--global-color-neutral-xx-dark);
   --global-placeholder-color: var(--global-color-neutral-x-light);
-  --global-input-backgroundColor: White;
+  --global-input-backgroundColor: #272727;
   --global-input-color: var(--global-color-neutral-xxxx-dark);
   --global-input-borderColor: var(--global-color-neutral-xxx-light);
   --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
@@ -119,9 +119,11 @@ html {
   font-size: 16px;
   line-height: 0.8;
   font-family: "Poppins", Helvetica, arial, sans-serif;
+  
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--global-color-neutral-xxx-light);
   background-color: var(--global-background-color);
 
 }
@@ -283,7 +285,7 @@ select {
 }
 
 input::placeholder {
-  color: var(--global-color-neutral);
+  color: var(--global-color-neutral-xxxx-light);
 }
 
 /*------------------------------------*\
@@ -404,7 +406,6 @@ input::placeholder {
 
 
 ::selection{
-  color: #fff;
   background: var(--global-color-alpha-x-accent);
 }
 
@@ -413,16 +414,20 @@ input::placeholder {
   z-index: 1001;
   left: 35%;
   right: 35%;
+  
 }
+.c-input::placeholder{
+    color: var(--global-color-neutral-xxx-light);
+}
+
 .c-search-input{
-  margin-top: var(--global-whitespace);
+    margin-top: var(--global-whitespace);
 }
 
 .wrapper .c-search-input{
   width: 100%;
   border-radius: var(--global-borderRadius);
   position: relative;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 10px;
 }
 
 .c-search-input input{
@@ -430,6 +435,8 @@ input::placeholder {
   width: 100%;
   outline: none;
   border: none;
+  background-color: var(--global-color-neutral-xxxx-light);
+  color: var(--global-color-neutral-xxx-light);
   border-radius: var(--global-borderRadius);
   padding: 0 60px 0 20px;
   font-size: 18px;
@@ -445,7 +452,8 @@ input::placeholder {
   pointer-events: none;
   max-height: 280px;
   overflow-y: auto;
-  background-color: var(--global-color-light);
+  background-color: var(--global-color-neutral-xxxx-light);
+  color: var(--global-color-neutral-xxx-light);
 }
 
 .c-search-input.active .autocom-box{
@@ -453,6 +461,10 @@ input::placeholder {
   opacity: 1;
   pointer-events: auto;
 
+}
+
+.c-search-image{
+    content: url(/assets/img/search_500px_2.png);
 }
 
 .autocom-box li{
@@ -467,11 +479,12 @@ input::placeholder {
 
 
 
+
 .c-search-input.active .autocom-box li{
   display: block;
 }
 .autocom-box li:hover{
-  background: #efefef;
+  background: var(--global-color-neutral-xxx-dark);
 }
 
 .c-search-input .icon{
@@ -483,6 +496,7 @@ input::placeholder {
   cursor: pointer;
 }
 
+
 .c-search-input .icon > img{
 
   display: block;
@@ -492,7 +506,7 @@ input::placeholder {
 
 
 .c-search-input:hover{
-  border: var(--global-color-alpha-x-accent) 2px solid;
+  border: var(--global-color-alpha-x-accent) 0.2rem solid;
 }
 
 .c-map{
@@ -540,11 +554,9 @@ input::placeholder {
 .leaflet-pane img{
   position: absolute;
 }
-.c-search-image{
-  content: url("/assets/img/search_500px.png");
-}
-.c-search:hover {
-  background-color: var(--global-color-neutral-xxx-light);
+
+.c-search:hover{
+  background-color: var(--global-color-neutral-xx-dark);
 }
 
 .c-darkmode{
@@ -660,13 +672,12 @@ input::placeholder {
     grid-auto-flow: column;
     grid-template-columns: 1fr;
     grid-template-rows: 18rem 0.8fr;
-    margin: 10rem 1.6rem 0.6rem 1.6rem;
+    margin: 9rem 1.6rem 0.6rem 1.6rem;
   }
   .container{
     display: flex;
     justify-content: space-around;
     border-radius: 0 0 0.6rem 0.6rem;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
  
   
@@ -694,7 +705,6 @@ input::placeholder {
     width: 0.9rem;
   }
   
-  
 }
 
 @media screen and (max-width: 450px) {
@@ -706,7 +716,6 @@ input::placeholder {
   .container{
     display: block;
   }
-  
 
 }
 
