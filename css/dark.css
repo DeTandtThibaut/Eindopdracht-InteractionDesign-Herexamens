@@ -464,7 +464,7 @@ input::placeholder {
 }
 
 .c-search-image{
-    content: url(/assets/img/search_500px_2.png);
+    content: url("../assets/img/search_500px_2.png");
 }
 
 .autocom-box li{

@@ -541,7 +541,7 @@ input::placeholder {
   position: absolute;
 }
 .c-search-image{
-  content: url("/assets/img/search_500px.png");
+  content: url("../assets/img/search_500px.png");
 }
 .c-search:hover {
   background-color: var(--global-color-neutral-xxx-light);
